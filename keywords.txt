@@ -1,14 +1,14 @@
 #######################################
-# Syntax Coloring Map For Motion_Control Library
+# Syntax Coloring Map Servo
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
 
-Encoder	KEYWORD1
-Axis	KEYWORD1
-Controller	KEYWORD1
+Encoder	KEYWORD1	Encoder
+Axis	KEYWORD1	Axis
+Controller	KEYWORD1	Controller
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -28,8 +28,6 @@ readLinearSpeed	KEYWORD2
 readAngularPosition	KEYWORD2
 readAngularSpeed	KEYWORD2
 
-# class Axis
-
 setOpMode	KEYWORD2
 setMaxOutput	KEYWORD2
 setOutput	KEYWORD2
@@ -42,8 +40,6 @@ moveAxisFoward	KEYWORD2
 moveAxisBackward	KEYWORD2
 brakeAxis	KEYWORD2
 looseAxis	KEYWORD2
-
-# class Controller
 
 runController	KEYWORD2
 setOpMode	KEYWORD2
@@ -69,7 +65,3 @@ isInPosition	KEYWORD2
 #######################################
 # Constants (LITERAL1)
 #######################################
-
-Envelope	KEYWORD3
-PID_gains	KEYWORD3
-Controller_data	KEYWORD3

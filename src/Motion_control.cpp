@@ -1396,6 +1396,40 @@ void Controller::setAll(Controller_data data){
 
 }
 
+void Controller::setAll(Axis *axis, Controller_data data){
+
+  int8_t id = axis->getID();
+
+  if(_envelope != NULL) {
+
+    if(data.setpoint[id] >= _envelope->limitMin[id] && data.setpoint[id] <= _envelope->limitMax[id]) _pid[id].setpoint = data.setpoint[id];
+    else _opMode = 0;
+
+  } else {
+
+    _pid[id].setpoint = data.setpoint[id];
+
+  }
+
+  if(data.controller[id] >= 0 && data.controller[id] <= 4) _pid[id].controller = data.controller[id];
+  else _pid[id].controller;
+
+  _pid[id].Kp = data.gains[0][id];
+  _pid[id].Ki = data.gains[1][id] * (_pid[id].period / 1000000);
+  _pid[id].Kd = data.gains[2][id] / (_pid[id].period / 1000000);
+
+  if(data.period[id] >= 10000) _pid[id].period = data.period[id];
+  else _pid[id].period = 100000;
+
+  if(data.tolerance[id] > 0) _pid[id].tolerance = data.tolerance[id];
+  else _pid[id].tolerance = 0;
+
+  if(data.readingMode[id] >= 0 && data.readingMode[id] <= 3) _pid[id].readingMode = data.readingMode[id];
+  else _pid[id].readingMode = 1;
+
+
+}
+
 // Funções get para leitura dos parametros do controlador
 
 bool Controller::getOpMode(){
@@ -1414,6 +1448,12 @@ Controller_data Controller::getInput(){
 
 }
 
+double Controller::getInput(Axis *axis){
+
+  return _pid[axis->getID()].input;
+
+}
+
 Controller_data Controller::getOutput(){
 
   Controller_data temp;
@@ -1424,6 +1464,12 @@ Controller_data Controller::getOutput(){
 
 }
 
+double Controller::getOutput(Axis *axis){
+
+  return _pid[axis->getID()].output;
+
+}
+
 Controller_data Controller::getSetpoint(){
 
   Controller_data temp;
@@ -1431,6 +1477,12 @@ Controller_data Controller::getSetpoint(){
   for(int i = 0; i < _nAxes; i++) temp.setpoint[i] = _pid[i].setpoint;
 
   return temp;
+
+}
+
+double Controller::getSetpoint(Axis *axis){
+
+  return _pid[axis->getID()].setpoint;
 
 }
 
@@ -1450,6 +1502,19 @@ Controller_data Controller::getGains(){
 
 }
 
+Controller_data Controller::getGains(Axis *axis){
+
+  Controller_data temp;
+  int8_t id = axis->getID();
+
+  temp.gains[0][id] = _pid[id].Kp;
+  temp.gains[1][id] = _pid[id].Ki;
+  temp.gains[2][id] = _pid[id].Kd;
+
+  return temp;
+
+}
+
 Controller_data Controller::getPIDPeriod(){
 
   Controller_data temp;
@@ -1457,6 +1522,12 @@ Controller_data Controller::getPIDPeriod(){
   for(int i = 0; i < _nAxes; i++) temp.period[i] = _pid[i].period;
 
   return temp;
+
+}
+
+double Controller::getPIDPeriod(Axis *axis){
+
+  return _pid[axis->getID()].period;
 
 }
 
@@ -1470,6 +1541,12 @@ Controller_data Controller::getController(){
 
 }
 
+int8_t Controller::getController(Axis *axis){
+
+  return _pid[axis->getID()].controller;
+
+}
+
 Controller_data Controller::getTolerance(){
 
   Controller_data temp;
@@ -1477,6 +1554,12 @@ Controller_data Controller::getTolerance(){
   for(int i = 0; i < _nAxes; i++) temp.tolerance[i] = _pid[i].tolerance;
 
   return temp;
+
+}
+
+double Controller::getTolerance(Axis *axis){
+
+  return _pid[axis->getID()].tolerance;
 
 }
 
@@ -1488,6 +1571,12 @@ Controller_data Controller::getReadingMode(){
 
   return temp;
 
+
+}
+
+int8_t Controller::getReadingMode(Axis *axis){
+
+  return _pid[axis->getID()].readingMode;
 
 }
 
@@ -1509,6 +1598,26 @@ Controller_data Controller::getAll(){
     temp.readingMode[i] = _pid[i].readingMode;
 
   }
+
+  return temp;
+
+}
+
+Controller_data Controller::getAll(Axis *axis){
+
+  Controller_data temp;
+  int8_t id = axis->getID();
+
+  temp.input[id] = _pid[id].input;
+  temp.output[id] = _pid[id].output;
+  temp.setpoint[id] = _pid[id].setpoint;
+  temp.gains[0][id] = _pid[id].Kp;
+  temp.gains[1][id] = _pid[id].Ki;
+  temp.gains[2][id] = _pid[id].Kd;
+  temp.period[id] = _pid[id].period;
+  temp.controller[id] = _pid[id].controller;
+  temp.tolerance[id] = _pid[id].tolerance;
+  temp.readingMode[id] = _pid[id].readingMode;
 
   return temp;
 

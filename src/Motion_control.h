@@ -249,19 +249,29 @@ public:
   void setReadingMode(Controller_data data);
   void setReadingMode(Axis axis, int8_t readingMode);
   void setAll(Controller_data data);
+  void setAll(Axis *axis, Controller_data data);
 
   // Funções get para leitura dos parametros do controlador
 
   bool getOpMode();
   Controller_data getInput();
+  double getInput(Axis *axis);
   Controller_data getOutput();
+  double getOutput(Axis *axis);
   Controller_data getSetpoint();
+  double getSetpoint(Axis *axis);
   Controller_data getGains();
+  Controller_data getGains(Axis *axis);
   Controller_data getPIDPeriod();
+  double getPIDPeriod(Axis *axis);
   Controller_data getController();
+  int8_t getController(Axis *axis);
   Controller_data getTolerance();
+  double getTolerance(Axis *axis);
   Controller_data getReadingMode();
+  int8_t getReadingMode(Axis *axis);
   Controller_data getAll();
+  Controller_data getAll(Axis *axis);
 
   // Funções auxiliares
 
