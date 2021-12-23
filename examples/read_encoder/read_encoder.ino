@@ -9,6 +9,7 @@ double pitch = 40.0; // [mm]
 
 // cria um novo objeto da classe Encoder
 Encoder encoder(pin1, pin2, pulses, pitch);
+Axis
 
 long current = 0, last = 0;
 
