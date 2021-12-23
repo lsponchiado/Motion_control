@@ -275,6 +275,7 @@ public:
 
   // Funções auxiliares
 
+  bool isInPosition();
   bool isInPosition(Axis axis);
   //
 

@@ -1,20 +1,21 @@
 #######################################
-# Syntax Coloring Map Servo
+# Syntax Coloring Map
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
 
-Encoder	KEYWORD1	Encoder
 Axis	KEYWORD1	Axis
+Encoder	KEYWORD1	Controller
 Controller	KEYWORD1	Controller
+Envelope	KEYWORD1	Envelope
+PID_setup	KEYWORD1	PID_setup
+Controller_data	KEYWORD1	Controller_data
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-
-# class encoder
 
 setReference	KEYWORD2
 setPulsesPerRev	KEYWORD2
@@ -42,7 +43,7 @@ brakeAxis	KEYWORD2
 looseAxis	KEYWORD2
 
 runController	KEYWORD2
-setOpMode	KEYWORD2
+#setOpMode	KEYWORD2
 setSetpoint	KEYWORD2
 setController	KEYWORD2
 setGains	KEYWORD2
@@ -50,9 +51,9 @@ setPIDPeriod	KEYWORD2
 setTolerance	KEYWORD2
 setReadingMode	KEYWORD2
 setAll	KEYWORD2
-getOpMode	KEYWORD2
+#getOpMode	KEYWORD2
 getInput	KEYWORD2
-getOutput	KEYWORD2
+#getOutput	KEYWORD2
 getSetpoint	KEYWORD2
 getGains	KEYWORD2
 getPIDPeriod	KEYWORD2

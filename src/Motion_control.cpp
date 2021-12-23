@@ -1625,6 +1625,16 @@ Controller_data Controller::getAll(Axis *axis){
 
 // Funções auxiliares
 
+bool Controller::isInPosition(){
+
+  bool temp = 1;
+
+  for(int i = 0; i < _nAxes; i++) temp = temp * isInPosition(&_pid[i]);
+
+  return temp;
+
+}
+
 bool Controller::isInPosition(Axis axis){
 
   return isInPosition(&_pid[axis.getID()]);
