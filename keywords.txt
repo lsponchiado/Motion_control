@@ -1,0 +1,75 @@
+#######################################
+# Syntax Coloring Map For Motion_Control Library
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Encoder	KEYWORD1
+Axis	KEYWORD1
+Controller	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+# class encoder
+
+setReference	KEYWORD2
+setPulsesPerRev	KEYWORD2
+setPitchPerRev	KEYWORD2
+setSpeedTrigger	KEYWORD2
+readPulses	KEYWORD2
+readPosition	KEYWORD2
+readSpeed	KEYWORD2
+readLinearPosition	KEYWORD2
+readLinearSpeed	KEYWORD2
+readAngularPosition	KEYWORD2
+readAngularSpeed	KEYWORD2
+
+# class Axis
+
+setOpMode	KEYWORD2
+setMaxOutput	KEYWORD2
+setOutput	KEYWORD2
+getID	KEYWORD2
+getOpMode	KEYWORD2
+getMaxOutput	KEYWORD2
+getOutput	KEYWORD2
+moveAxis	KEYWORD2
+moveAxisFoward	KEYWORD2
+moveAxisBackward	KEYWORD2
+brakeAxis	KEYWORD2
+looseAxis	KEYWORD2
+
+# class Controller
+
+runController	KEYWORD2
+setOpMode	KEYWORD2
+setSetpoint	KEYWORD2
+setController	KEYWORD2
+setGains	KEYWORD2
+setPIDPeriod	KEYWORD2
+setTolerance	KEYWORD2
+setReadingMode	KEYWORD2
+setAll	KEYWORD2
+getOpMode	KEYWORD2
+getInput	KEYWORD2
+getOutput	KEYWORD2
+getSetpoint	KEYWORD2
+getGains	KEYWORD2
+getPIDPeriod	KEYWORD2
+getController	KEYWORD2
+getTolerance	KEYWORD2
+getReadingMode	KEYWORD2
+getAll	KEYWORD2
+isInPosition	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+Envelope	KEYWORD3
+PID_gains	KEYWORD3
+Controller_data	KEYWORD3
