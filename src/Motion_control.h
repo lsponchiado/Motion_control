@@ -224,10 +224,10 @@ public:
 
   // Construtores da classe
 
-  Controller(Axis *axes, Encoder *encoders);
-  Controller(Axis *axes, Encoder *encoders, int8_t sequence[5]);
-  Controller(Axis *axes, Encoder *encoders, Envelope *envelope);
-  Controller(Axis *axes, Encoder *encoders, Envelope *envelope, int8_t sequence[5]);
+  Controller(Axis *axes, Encoder *encoders, int8_t nAxes);
+  Controller(Axis *axes, Encoder *encoders, int8_t nAxes, int8_t sequence[5]);
+  Controller(Axis *axes, Encoder *encoders, int8_t nAxes, Envelope *envelope);
+  Controller(Axis *axes, Encoder *encoders, int8_t nAxes, Envelope *envelope, int8_t sequence[5]);
 
 
   // Funções para operação do controlador
@@ -272,6 +272,7 @@ public:
   int8_t getReadingMode(Axis *axis);
   Controller_data getAll();
   Controller_data getAll(Axis *axis);
+  int8_t getTotalAxes();
 
   // Funções auxiliares
 

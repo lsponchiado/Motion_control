@@ -61,6 +61,7 @@ getController	KEYWORD2
 getTolerance	KEYWORD2
 getReadingMode	KEYWORD2
 getAll	KEYWORD2
+getTotalAxes	KEYWORD2
 isInPosition	KEYWORD2
 
 #######################################

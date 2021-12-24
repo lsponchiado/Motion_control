@@ -1049,9 +1049,9 @@ void Axis::runInterrupt(){
 
 // Construtores da classe
 
-Controller::Controller(Axis *axes, Encoder *encoders){
+Controller::Controller(Axis *axes, Encoder *encoders, int8_t nAxes){
 
-  _nAxes = sizeof(axes)/sizeof(Axis);
+  _nAxes = nAxes;
 
   _axes = axes;
   _encoders = encoders;
@@ -1067,9 +1067,9 @@ Controller::Controller(Axis *axes, Encoder *encoders){
 
 }
 
-Controller::Controller(Axis *axes, Encoder *encoders,int8_t sequence[5]){
+Controller::Controller(Axis *axes, Encoder *encoders, int8_t nAxes, int8_t sequence[5]){
 
-  _nAxes = sizeof(axes)/sizeof(Axis);
+  _nAxes = nAxes;
 
   _axes = axes;
   _encoders = encoders;
@@ -1085,9 +1085,9 @@ Controller::Controller(Axis *axes, Encoder *encoders,int8_t sequence[5]){
 
 }
 
-Controller::Controller(Axis *axes, Encoder *encoders, Envelope *envelope){
+Controller::Controller(Axis *axes, Encoder *encoders, int8_t nAxes, Envelope *envelope){
 
-  _nAxes = sizeof(axes)/sizeof(Axis);
+  _nAxes = nAxes;
 
   _axes = axes;
   _encoders = encoders;
@@ -1104,9 +1104,9 @@ Controller::Controller(Axis *axes, Encoder *encoders, Envelope *envelope){
 
 }
 
-Controller::Controller(Axis *axes, Encoder *encoders, Envelope *envelope, int8_t sequence[5]){
+Controller::Controller(Axis *axes, Encoder *encoders, int8_t nAxes, Envelope *envelope, int8_t sequence[5]){
 
-  _nAxes = sizeof(axes)/sizeof(Axis);
+  _nAxes = nAxes;
 
   _axes = axes;
   _encoders = encoders;
@@ -1620,6 +1620,12 @@ Controller_data Controller::getAll(Axis *axis){
   temp.readingMode[id] = _pid[id].readingMode;
 
   return temp;
+
+}
+
+int8_t Controller::getTotalAxes(){
+
+  return _nAxes;
 
 }
 
