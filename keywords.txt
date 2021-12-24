@@ -9,9 +9,6 @@
 Axis	KEYWORD1	Axis
 Encoder	KEYWORD1	Controller
 Controller	KEYWORD1	Controller
-Envelope	KEYWORD1	Envelope
-PID_setup	KEYWORD1	PID_setup
-Controller_data	KEYWORD1	Controller_data
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -67,3 +64,11 @@ isInPosition	KEYWORD2
 #######################################
 # Constants (LITERAL1)
 #######################################
+
+#######################################
+# Variables (LITERAL1)
+#######################################
+
+Envelope	LITERAL1
+PID_setup	LITERAL1
+Controller_data	LITERAL1
