@@ -2,8 +2,6 @@
 
 ## Table of contents
 * [Introduction](#Introduction)
-* [Scope of functionalities](#Scope-of-functionalities)
-* [Classes description](#Classes-description)
 
 ## Introduction
 
