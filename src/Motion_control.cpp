@@ -1221,10 +1221,11 @@ void Controller::runController(Axis axis){
 
   if(_opMode == 1){
 
+    bool check;
     int8_t id = axis.getID();
 
     _pid[id].input = _encoders[id].readPosition(_pid[id].readingMode);
-    if(runCalculation(&_pid[id) == 1) check = moveAxis(&_axes[id]);
+    if(runCalculation(&_pid[id]) == 1) check = moveAxis(&_axes[id]);
 
   }
 
