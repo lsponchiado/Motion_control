@@ -1217,6 +1217,19 @@ void Controller::runController(){
 
 }
 
+void Controller::runController(Axis axis){
+
+  if(_opMode == 1){
+
+    int8_t id = axis.getID();
+
+    _pid[id].input = _encoders[id].readPosition(_pid[id].readingMode);
+    if(runCalculation(&_pid[id) == 1) check = moveAxis(&_axes[id]);
+
+  }
+
+}
+
 // Funções set para alterar os parametros do controlador
 
 void Controller::setOpMode(bool value){

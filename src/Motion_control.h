@@ -232,6 +232,7 @@ public:
 
   // Funções para operação do controlador
   void runController();
+  void runController(Axis axis);
 
   // Funções set para alterar os parametros do controlador
 
