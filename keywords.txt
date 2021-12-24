@@ -6,9 +6,10 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-Axis	KEYWORD1	Axis
-Encoder	KEYWORD1	Controller
-Controller	KEYWORD1	Controller
+Motion_control	KEYWORD1
+Axis	KEYWORD1
+Encoder	KEYWORD1
+Controller	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -62,13 +63,15 @@ getTotalAxes	KEYWORD2
 isInPosition	KEYWORD2
 
 #######################################
+# Structures (KEYWORD3)
+#######################################
+
+Envelope	KEYWORD3
+PID_setup	KEYWORD3
+Controller_data	KEYWORD3
+
+#######################################
 # Constants (LITERAL1)
 #######################################
 
-#######################################
-# Variables (LITERAL1)
-#######################################
 
-Envelope	LITERAL1
-PID_setup	LITERAL1
-Controller_data	LITERAL1
