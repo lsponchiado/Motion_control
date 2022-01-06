@@ -39,15 +39,15 @@ Controller controller(axes, encoders, nAxes);
 void setup() {
 
   for(int i = 0; i < nAxes; i++){
-    
+
     data.tolerance[i] = 2.0;        // Tolerance = +/- 2 mm
-    data.gains[0][i] = 1.0;         // Kp = 1
-    data.gains[1][i] = 0.5;         // Ki = 0.5
-    data.gains[2][i] = 0.0;         // Kd = 0.0
+    data.Kp[i] = 1.0;         // Kp = 1
+    data.Ki[i] = 0.5;         // Ki = 0.5
+    data.Kd[i] = 0.0;         // Kd = 0.0
     data.controller[i] = 2;         // PI controller
 
     axes[i].setOpMode(1);           // Ativando os eixos
-    
+
   }
 
   controller.setTolerance(data);    // Alterando a tolerancia do controlador (padrao = 1)
@@ -59,7 +59,7 @@ void setup() {
 }
 
 void loop() {
-  
+
   currentTime = millis();
   nextSetpoint();
 
@@ -71,22 +71,22 @@ void nextSetpoint(){
 
     counter1++;
     if(counter1 == 4) counter1 = 0;
-    
+
     controller.setSetpoint(axes[0], setpoint_1[counter1]);
-    
+
     delay_axis1 = currentTime;
-    
+
    }
 
    if(controller.isInPosition(axes[1]) == 1 && (currentTime - delay_axis2) >= 3000){
 
     counter2++;
     if(counter2 == 4) counter2 = 0;
-    
+
     controller.setSetpoint(axes[1], setpoint_2[counter2]);
-    
+
     delay_axis2 = currentTime;
-    
+
    }
-  
+
 }

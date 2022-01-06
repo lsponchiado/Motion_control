@@ -28,7 +28,7 @@ struct Controller_data {
   double input[5];
   double output[5];
   double setpoint[5];
-  double gains[3][5];
+  double Kp[5], Ki[5], Kd[5];
   double tolerance[5];
   uint32_t period[5];
   uint8_t controller[5];
@@ -225,10 +225,7 @@ public:
   // Construtores da classe
 
   Controller(Axis *axes, Encoder *encoders, int8_t nAxes);
-  Controller(Axis *axes, Encoder *encoders, int8_t nAxes, int8_t sequence[5]);
   Controller(Axis *axes, Encoder *encoders, int8_t nAxes, Envelope *envelope);
-  Controller(Axis *axes, Encoder *encoders, int8_t nAxes, Envelope *envelope, int8_t sequence[5]);
-
 
   // Funções para operação do controlador
   void runController();
@@ -240,6 +237,7 @@ public:
   void setSetpoint(Controller_data data);
   void setSetpoint(Axis axis, double setpoint);
   void setController(Controller_data data);
+  void setController(Axis axis);
   void setController(Axis axis, uint8_t controller);
   void setGains(Controller_data data);
   void setGains(Axis axis, double Kp, double Ki, double Kd);
@@ -250,29 +248,29 @@ public:
   void setReadingMode(Controller_data data);
   void setReadingMode(Axis axis, int8_t readingMode);
   void setAll(Controller_data data);
-  void setAll(Axis *axis, Controller_data data);
+  void setAll(Axis axis, Controller_data data);
 
   // Funções get para leitura dos parametros do controlador
 
   bool getOpMode();
   Controller_data getInput();
-  double getInput(Axis *axis);
+  double getInput(Axis axis);
   Controller_data getOutput();
-  double getOutput(Axis *axis);
+  double getOutput(Axis axis);
   Controller_data getSetpoint();
-  double getSetpoint(Axis *axis);
+  double getSetpoint(Axis axis);
   Controller_data getGains();
-  Controller_data getGains(Axis *axis);
+  Controller_data getGains(Axis axis);
   Controller_data getPIDPeriod();
-  double getPIDPeriod(Axis *axis);
+  double getPIDPeriod(Axis axis);
   Controller_data getController();
-  int8_t getController(Axis *axis);
+  int8_t getController(Axis axis);
   Controller_data getTolerance();
-  double getTolerance(Axis *axis);
+  double getTolerance(Axis axis);
   Controller_data getReadingMode();
-  int8_t getReadingMode(Axis *axis);
+  int8_t getReadingMode(Axis axis);
   Controller_data getAll();
-  Controller_data getAll(Axis *axis);
+  Controller_data getAll(Axis axis);
   int8_t getTotalAxes();
 
   // Funções auxiliares
@@ -293,8 +291,8 @@ private:
   PID_setup *_pid;
   Envelope *_envelope;
 
-  int8_t _nAxes, _sequence[5];
-  bool _opMode, _sequenceMode;
+  int8_t _nAxes;
+  bool _opMode;
 
 };
 
